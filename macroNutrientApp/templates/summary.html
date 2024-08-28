@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- meal entry section -->
+<div class="container mt-5 pt-5">
+    <center> 
+        <h1>Summary</h1><br><br>
+
+        <!-- Display summary data here --> 
+        <p>Total Meals: {{ total_meals }}</p>
+        <p>Total Calories Consumed: {{ total_calories }}</p>
+        <p>Total Protein Consumed: {{ total_protein }}</p>
+        <p>Total Carbs Consumed: {{ total_carbs }}</p>
+        <p>Total Fat Consumed: {{ total_fat }}</p>
+    </center>
+
+    <center><a href= "{% url 'userlogin' %}" class="btn btn-danger">Back to userlogin</a></center>
+
+
+</div>
+
+
+
+
+{% endblock %}

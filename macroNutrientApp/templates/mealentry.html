@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- meal entry section -->
+<div class="container mt-5 pt-5">
+    <center> 
+        <h1>Meal Entry Form</h1><br><br>
+    
+     <form method="POST">
+         {% csrf_token %}
+         Food: <input type="text" name="food"><br><br>
+         Quantity: <input type="number" name="quantity"><br><br>
+         Date: <input type="date" name="date"><br><br>
+         <button type="submit">Add Meal</button>
+     </form>
+
+    
+    </center>
+    <br>
+    <br>
+
+    <center><a href= "{% url 'nutritionalanalysis' %}" class="btn btn-danger">Go to Nutritional Analysis</a></center><br><br>
+    <center><a href= "{% url 'userlogin' %}" class="btn btn-danger">Go back to userlogin</a></center>
+
+</div>
+
+
+
+
+{% endblock %}

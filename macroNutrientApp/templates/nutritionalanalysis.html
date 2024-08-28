@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- meal entry section -->
+<div class="container mt-5 pt-5">
+    <center> 
+        <h1>Nutritional Analysis</h1><br><br>
+
+
+        <!-- Display nutritional analysis data here --> 
+        <p>Total Calories: {{ total_calories }}</p>
+        <p>Total Protein: {{ total_protein }}</p>
+        <p>Total Carbs: {{ total_carbs }}</p>
+        <p>Total Fat: {{ total_fat }}</p>
+    </center>
+
+    <br><br>
+
+    <center><a href= "{% url 'userlogin' %}" class="btn btn-danger">Back to userlogin</a></center>
+    <br><br>
+</div>
+<div class="container">
+    <canvas id="nutritionalChart" width="100" height="100"></canvas>
+  </div>
+
+
+<script>
+    var ctx = document.getElementById('nutritionalChart').getContext('2d');
+    var nutritionalChart = new Chart(ctx, {
+        type: 'bar', // Change this to the desired chart type (bar, line, pie, etc.)
+        data: {
+            labels: ['Protein', 'Carbs', 'Fat'], // Example labels
+            datasets: [{
+                label: 'Nutritional Analysis', // Example dataset label
+                data: [20, 40, 30], // Example dataset values
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+        
+        }
+    });
+</script>
+
+
+
+
+{% endblock %}

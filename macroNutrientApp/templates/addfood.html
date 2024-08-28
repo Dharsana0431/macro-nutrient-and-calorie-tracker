@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %} <br><br><br>
+<center>
+    <h1>Add Food</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        Name: <input type="text" name="name" ><br><br>
+        Calories: <input type="number" name="calories" ><br><br>
+        Proteins: <input type="number" name="proteins"><br><br>
+        Carbs: <input type="number" name="carbs"><br><br>
+        Fat: <input type="number" name="fat"><br><br>
+        <button type="submit">Add Food</button>
+    </form>
+    </center>
+
+
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+<br><br><br>
+<h1>Users Registration</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">name</th>
+        <th scope="col">email</th>
+        <th scope="col">password</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for i in details %}
+            <td> {{ i.name }}</td>
+            <td>{{ i.email }} </td>
+            <td>{{ i.password }}</td>
+            
+        </tr>
+        {% endfor %}
+    </tbody>       
+
+</table>
+
+<h1>Meal Entries</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for entry in mealentries %}
+            <tr>
+                <td>{{ entry.food.name }}</td>
+                <td>{{ entry.quantity }}</td>
+                <td>{{ entry.date }}</td>
+            </tr>
+            {% endfor %}
+    </tbody>       
+
+</table>
+
+<h1>Food details</h1> <a href="{% url 'addfood' %}">Add food</a>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+            <th>Calories</th>
+            <th>Protein</th>
+            <th>Carbs</th>
+            <th>Fat</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for food in fooddetails %}
+                <tr>
+                    <td>{{ food.name }}</td>
+                    <td>{{ food.calories }}</td>
+                    <td>{{ food.protein }}</td>
+                    <td>{{ food.carbs }}</td>
+                    <td>{{ food.fat }}</td>
+                    <td><a href="{% url 'update' id=food.id %}">Update</a></td>
+                    <td><a href="{% url 'delete' id=food.id %}">Delete</a></td>
+                </tr>
+                {% endfor %}
+    </tbody>       
+
+</table>
+
+                
+
+{% endblock %}

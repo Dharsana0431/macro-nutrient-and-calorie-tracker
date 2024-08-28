@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Goal Setting Section -->
+<center>
+<section id="goalset p-5 m-5">
+  <div class="container p-5 m-5">
+      <h2>Goal Setting</h2>
+      
+      
+      <!-- Goal Categories -->
+      <div id="goalcategories">
+          <h3>Goal Categories</h3>
+          <ul>
+              <li>Nutrition</li>
+              <li>Fitness</li>
+              <li>Weight Management</li>
+          </ul>
+      </div>
+         <!-- Goal Setting Form -->
+         <div id="goalsetform">
+          <h3>Goal Setting Form</h3>
+          <form method="POST">
+            {% csrf_token %}
+              Goal Type:
+              <select id="goaltype" name="goaltype">
+                  <option value="weightloss">Weight Loss</option>
+                  <option value="musclegain">Muscle Gain</option>
+                  
+              </select>
+              
+              Target Metrics:
+              <input type="text" name="targetmetrics" placeholder="Enter target metrics"><br><br>
+              
+              Timeframe:
+              <input type="text" name="timeframe" placeholder="Enter timeframe"><br><br>
+              
+              <button type="submit">Set Goal</button>
+          </form>
+
+          <br><br>
+      </div><center><a href= "{% url 'userlogin' %}" class="btn btn-danger">Back to userlogin</a></center>
+
+
+
+  </div>
+  
+</section>
+</center>
+
+<!-- <div class="container">
+    <canvas id="goalChart" width="50" height="50"></canvas>
+  </div>
+<script>
+    var ctx = document.getElementById('goalChart').getContext('2d');
+    var goalChart = new Chart(ctx, {
+        type: 'pie', // Change this to the desired chart type (bar, line, pie, etc.)
+        data: {
+            labels: ['Current;', 'Goal'], // Example labels
+            datasets: [{
+                label: 'Progress Towards Goal', // Example dataset label
+                data: [1.5, 2.0], // Example dataset values
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            // Add options such as title, axes configuration, etc.
+        }
+    });
+</script>
+ -->
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<br><br><br>
+<center>
+    <h1>UPDATE FORM</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% for u in u %}
+        Name: <input type="text" name="name" value="{{ u.name }}"><br><br>
+        Calories: <input type="number" name="calories" value="{{ u.calories }}"><br><br>
+        Proteins: <input type="number" name="proteins" value="{{ u.proteins }}"><br><br>
+        Carbs: <input type="number" name="carbs" value="{{ u.carbs }}"><br><br>
+        Fat: <input type="number" name="fat" value="{{ u.fat }}"><br><br>
+        <button type="submit">Update Food</button>
+        <!-- Food <input type="text" name="name" value="{{ u.name }}"><br><br>
+        Quantity <input type="password" name="password" value="{{ u.password }}"><br><br>
+        <button type="submit">Update</button> -->
+        {% endfor %}
+    </form>
+    </center>
+{% endblock %}
